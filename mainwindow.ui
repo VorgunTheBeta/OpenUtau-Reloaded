@@ -15,7 +15,7 @@
   </property>
   <property name="windowIcon">
    <iconset>
-    <normaloff>../../Kyle/Pictures/Vocaloid and Utau/Utau_logo_large.png</normaloff>../../Kyle/Pictures/Vocaloid and Utau/Utau_logo_large.png</iconset>
+    <normaloff>Utau_logo_large.png</normaloff>Utau_logo_large.png</iconset>
   </property>
   <widget class="QWidget" name="centralwidget">
    <widget class="QScrollBar" name="verticalScrollBar">

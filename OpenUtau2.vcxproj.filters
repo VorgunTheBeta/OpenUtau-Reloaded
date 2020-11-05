@@ -211,4 +211,7 @@
       <Filter>Generated Files</Filter>
     </ClInclude>
   </ItemGroup>
+  <ItemGroup>
+    <Image Include="Utau_logo_large.png" />
+  </ItemGroup>
 </Project>
