@@ -12,6 +12,7 @@
 #include <string>
 
 int tempo = 120;
+CxxMidi::File file;
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -46,27 +47,33 @@ void MainWindow::on_actionRead_Me_triggered(){
 void playMidi() {
     CxxMidi::Output::Default output(0);
     output.openPort(0);
-    CxxMidi::File file("Alleycat.mid");   //bpm = 62
+    //file.load("Alleycat.mid");
     CxxMidi::Player::Asynchronous player(&output);
 
     player.setFile(&file);
     //tempo = &file.duration().toTimecode();
-    QString str = QString::fromStdString(file.tempo());
-    int bpm = (60 * 1000000) / std::stoi(file.tempo());
-    qDebug() << str;
-    tempo = bpm;
-    qDebug() << tempo;
+    //QString str = QString::fromStdString(file.tempo());
+    //int bpm = (60 * 1000000) / std::stoi(file.tempo());
+    //qDebug() << str;
+    //tempo = bpm;
+    //qDebug() << tempo;
     //MainWindow temp;
     //str = str.setNum(tempo);
     //temp.bpmText->setText(str);
     
     player.play();
-    std::this_thread::sleep_for(std::chrono::seconds(3));
+    std::this_thread::sleep_for(std::chrono::seconds(10));
     player.pause();
 }
 
 void MainWindow::on_actionPlay_Region_triggered() {
     playMidi();
+    
+}
+
+void MainWindow::on_actionImport_triggered() {
+    file.load("Alleycat.mid");
+    tempo = (60 * 1000000) / std::stoi(file.tempo());
     QString str;
     this->ui->bpmText->setText(str.setNum(tempo));
 }

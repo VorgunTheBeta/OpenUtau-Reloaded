@@ -31,7 +31,7 @@ public:
             VersionWindow->setObjectName(QString::fromUtf8("VersionWindow"));
         VersionWindow->resize(372, 126);
         QIcon icon;
-        icon.addFile(QString::fromUtf8("../../Kyle/Pictures/Vocaloid and Utau/Utau_logo_large.png"), QSize(), QIcon::Normal, QIcon::Off);
+        icon.addFile(QString::fromUtf8("Utau_logo_large.png"), QSize(), QIcon::Normal, QIcon::Off);
         VersionWindow->setWindowIcon(icon);
         buttonBox = new QDialogButtonBox(VersionWindow);
         buttonBox->setObjectName(QString::fromUtf8("buttonBox"));

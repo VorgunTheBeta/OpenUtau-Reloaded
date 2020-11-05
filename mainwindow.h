@@ -22,6 +22,7 @@ private slots:
     void on_actionExit_triggered();
     void on_actionRead_Me_triggered();
     void on_actionPlay_Region_triggered();
+    void on_actionImport_triggered();
 
     void keyPressEvent(QKeyEvent* event);
 

@@ -36,7 +36,7 @@
      <rect>
       <x>40</x>
       <y>10</y>
-      <width>113</width>
+      <width>133</width>
       <height>20</height>
      </rect>
     </property>
@@ -45,7 +45,7 @@
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>10</y>
+      <y>13</y>
       <width>47</width>
       <height>13</height>
      </rect>

@@ -130,7 +130,7 @@ public:
             MainWindow->setObjectName(QString::fromUtf8("MainWindow"));
         MainWindow->resize(888, 657);
         QIcon icon;
-        icon.addFile(QString::fromUtf8("../../Kyle/Pictures/Vocaloid and Utau/Utau_logo_large.png"), QSize(), QIcon::Normal, QIcon::Off);
+        icon.addFile(QString::fromUtf8("Utau_logo_large.png"), QSize(), QIcon::Normal, QIcon::Off);
         MainWindow->setWindowIcon(icon);
         actionNew = new QAction(MainWindow);
         actionNew->setObjectName(QString::fromUtf8("actionNew"));
@@ -292,10 +292,10 @@ public:
         verticalScrollBar->setOrientation(Qt::Vertical);
         bpmText = new QLineEdit(centralwidget);
         bpmText->setObjectName(QString::fromUtf8("bpmText"));
-        bpmText->setGeometry(QRect(40, 10, 113, 20));
+        bpmText->setGeometry(QRect(40, 10, 133, 20));
         label = new QLabel(centralwidget);
         label->setObjectName(QString::fromUtf8("label"));
-        label->setGeometry(QRect(10, 10, 47, 13));
+        label->setGeometry(QRect(10, 13, 47, 13));
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName(QString::fromUtf8("menubar"));
