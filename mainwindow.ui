@@ -1,0 +1,636 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>888</width>
+    <height>657</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Main - OpenUtau Reloaded</string>
+  </property>
+  <property name="windowIcon">
+   <iconset>
+    <normaloff>../../Kyle/Pictures/Vocaloid and Utau/Utau_logo_large.png</normaloff>../../Kyle/Pictures/Vocaloid and Utau/Utau_logo_large.png</iconset>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QScrollBar" name="verticalScrollBar">
+    <property name="geometry">
+     <rect>
+      <x>870</x>
+      <y>0</y>
+      <width>16</width>
+      <height>601</height>
+     </rect>
+    </property>
+    <property name="orientation">
+     <enum>Qt::Vertical</enum>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="bpmText">
+    <property name="geometry">
+     <rect>
+      <x>40</x>
+      <y>10</y>
+      <width>113</width>
+      <height>20</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>10</y>
+      <width>47</width>
+      <height>13</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>BPM:</string>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>888</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuFile">
+    <property name="title">
+     <string>File</string>
+    </property>
+    <addaction name="actionNew"/>
+    <addaction name="actionOpen"/>
+    <addaction name="actionSave"/>
+    <addaction name="actionSave_as"/>
+    <addaction name="separator"/>
+    <addaction name="actionImport"/>
+    <addaction name="actionExport"/>
+    <addaction name="separator"/>
+    <addaction name="actionRecent"/>
+    <addaction name="separator"/>
+    <addaction name="actionExit"/>
+   </widget>
+   <widget class="QMenu" name="menuEdit">
+    <property name="title">
+     <string>Edit</string>
+    </property>
+    <addaction name="actionUndo"/>
+    <addaction name="actionRedo"/>
+    <addaction name="separator"/>
+    <addaction name="actionCut"/>
+    <addaction name="actionCopy"/>
+    <addaction name="actionPaste"/>
+    <addaction name="actionDelete"/>
+    <addaction name="separator"/>
+    <addaction name="actionSelect_All"/>
+    <addaction name="actionSelect_All_Notes"/>
+    <addaction name="actionSelect_by_Name"/>
+    <addaction name="separator"/>
+    <addaction name="actionInsert_Rest"/>
+    <addaction name="actionMerge_Notes"/>
+    <addaction name="actionQuantize"/>
+   </widget>
+   <widget class="QMenu" name="menuRegion">
+    <property name="title">
+     <string>Region</string>
+    </property>
+    <widget class="QMenu" name="menuEnvelope_for_Crossfade">
+     <property name="title">
+      <string>Envelope for Crossfade</string>
+     </property>
+     <addaction name="actionP2P3"/>
+    </widget>
+    <addaction name="actionMove_Reguin_Up_One"/>
+    <addaction name="actionMove_Region_Down_One"/>
+    <addaction name="actionMove_Region_by_Number"/>
+    <addaction name="separator"/>
+    <addaction name="actionApply_Automatic_VCV_Lyrics"/>
+    <addaction name="actionApply_Automatic_Adjustments"/>
+    <addaction name="menuEnvelope_for_Crossfade"/>
+    <addaction name="actionCrossfade_Optimization"/>
+    <addaction name="actionReset_Envelopes"/>
+    <addaction name="separator"/>
+    <addaction name="actionPitch_Editor"/>
+    <addaction name="actionEnvelope_Editor"/>
+    <addaction name="actionRegion_Property"/>
+   </widget>
+   <widget class="QMenu" name="menuView">
+    <property name="title">
+     <string>View</string>
+    </property>
+    <addaction name="actionZoom_In"/>
+    <addaction name="actionZoom_Out"/>
+    <addaction name="actionVertical_Zoom_In"/>
+    <addaction name="actionVertical_Zoom_Out"/>
+    <addaction name="separator"/>
+    <addaction name="action4_4_Beat"/>
+    <addaction name="action3_4_Beat"/>
+    <addaction name="separator"/>
+    <addaction name="actionSounds_List"/>
+    <addaction name="separator"/>
+    <addaction name="actionShow_Pitch_Curves"/>
+   </widget>
+   <widget class="QMenu" name="menuSearch">
+    <property name="title">
+     <string>Search</string>
+    </property>
+    <addaction name="actionSearch_Forward"/>
+    <addaction name="actionSearch_Backward"/>
+    <addaction name="separator"/>
+    <addaction name="actionGo_to_Next_Note"/>
+    <addaction name="actionGo_to_Previous_Note"/>
+    <addaction name="separator"/>
+    <addaction name="actionGo_to_Region_Start"/>
+    <addaction name="actionGo_to_Region_End"/>
+    <addaction name="actionGo_to_Label"/>
+    <addaction name="separator"/>
+    <addaction name="actionGo_to_First_Note"/>
+    <addaction name="actionGo_to_Last_Note"/>
+    <addaction name="actionGo_to_Start"/>
+    <addaction name="actionGo_to_End"/>
+   </widget>
+   <widget class="QMenu" name="menuProject">
+    <property name="title">
+     <string>Project</string>
+    </property>
+    <widget class="QMenu" name="menuPlay_Rendered_File">
+     <property name="title">
+      <string>Play Rendered File</string>
+     </property>
+     <addaction name="actionPlay"/>
+     <addaction name="actionPause"/>
+     <addaction name="actionStop"/>
+    </widget>
+    <addaction name="actionRender_wav_file"/>
+    <addaction name="separator"/>
+    <addaction name="menuPlay_Rendered_File"/>
+    <addaction name="separator"/>
+    <addaction name="actionProject_Properties"/>
+   </widget>
+   <widget class="QMenu" name="menuPlay">
+    <property name="title">
+     <string>Play</string>
+    </property>
+    <addaction name="actionPlay_Region"/>
+    <addaction name="actionReplay"/>
+    <addaction name="actionPause_2"/>
+    <addaction name="actionStop_2"/>
+    <addaction name="separator"/>
+    <addaction name="actionSave_Last_Play"/>
+   </widget>
+   <widget class="QMenu" name="menuTools">
+    <property name="title">
+     <string>Tools</string>
+    </property>
+    <widget class="QMenu" name="menuPlugins">
+     <property name="title">
+      <string>Plugins</string>
+     </property>
+     <addaction name="separator"/>
+     <addaction name="actionReload"/>
+     <addaction name="actionOpen_Plugins_Folder"/>
+    </widget>
+    <widget class="QMenu" name="menuBuilt_in_Tools">
+     <property name="title">
+      <string>Built-in Tools</string>
+     </property>
+     <addaction name="actionPitch_Automation"/>
+     <addaction name="actionCrossfade"/>
+     <addaction name="actionAuto_Vibrato"/>
+     <addaction name="separator"/>
+     <addaction name="actionA_La_Carte"/>
+     <addaction name="separator"/>
+     <addaction name="actionSuffix_Broker"/>
+     <addaction name="actionVolume_Functionizer"/>
+    </widget>
+    <widget class="QMenu" name="menuNote_Default">
+     <property name="title">
+      <string>Note Default</string>
+     </property>
+     <addaction name="actionGeneral"/>
+     <addaction name="actionPitch_Control"/>
+     <addaction name="actionEnvelope"/>
+    </widget>
+    <addaction name="actionVoicebank_Settings"/>
+    <addaction name="actionEdit_prefix_map"/>
+    <addaction name="separator"/>
+    <addaction name="menuPlugins"/>
+    <addaction name="separator"/>
+    <addaction name="menuBuilt_in_Tools"/>
+    <addaction name="separator"/>
+    <addaction name="menuNote_Default"/>
+    <addaction name="actionSettings"/>
+   </widget>
+   <widget class="QMenu" name="menuHelp">
+    <property name="title">
+     <string>Help</string>
+    </property>
+    <addaction name="actionRead_Me"/>
+    <addaction name="separator"/>
+    <addaction name="actionVersion"/>
+   </widget>
+   <addaction name="menuFile"/>
+   <addaction name="menuEdit"/>
+   <addaction name="menuRegion"/>
+   <addaction name="menuView"/>
+   <addaction name="menuSearch"/>
+   <addaction name="menuProject"/>
+   <addaction name="menuPlay"/>
+   <addaction name="menuTools"/>
+   <addaction name="menuHelp"/>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+  <action name="actionNew">
+   <property name="text">
+    <string>New</string>
+   </property>
+  </action>
+  <action name="actionOpen">
+   <property name="text">
+    <string>Open</string>
+   </property>
+  </action>
+  <action name="actionSave">
+   <property name="text">
+    <string>Save</string>
+   </property>
+  </action>
+  <action name="actionSave_as">
+   <property name="text">
+    <string>Save as...</string>
+   </property>
+  </action>
+  <action name="actionImport">
+   <property name="text">
+    <string>Import</string>
+   </property>
+  </action>
+  <action name="actionExport">
+   <property name="text">
+    <string>Export</string>
+   </property>
+  </action>
+  <action name="actionRecent">
+   <property name="text">
+    <string>Recent</string>
+   </property>
+  </action>
+  <action name="actionExit">
+   <property name="text">
+    <string>Exit</string>
+   </property>
+  </action>
+  <action name="actionUndo">
+   <property name="text">
+    <string>Undo</string>
+   </property>
+  </action>
+  <action name="actionRedo">
+   <property name="text">
+    <string>Redo</string>
+   </property>
+  </action>
+  <action name="actionCut">
+   <property name="text">
+    <string>Cut</string>
+   </property>
+  </action>
+  <action name="actionCopy">
+   <property name="text">
+    <string>Copy</string>
+   </property>
+  </action>
+  <action name="actionPaste">
+   <property name="text">
+    <string>Paste</string>
+   </property>
+  </action>
+  <action name="actionDelete">
+   <property name="text">
+    <string>Delete</string>
+   </property>
+  </action>
+  <action name="actionSelect_All">
+   <property name="text">
+    <string>Select All</string>
+   </property>
+  </action>
+  <action name="actionSelect_All_Notes">
+   <property name="text">
+    <string>Select All Notes</string>
+   </property>
+  </action>
+  <action name="actionSelect_by_Name">
+   <property name="text">
+    <string>Select by Name</string>
+   </property>
+  </action>
+  <action name="actionInsert_Rest">
+   <property name="text">
+    <string>Insert Rest</string>
+   </property>
+  </action>
+  <action name="actionMerge_Notes">
+   <property name="text">
+    <string>Merge Notes</string>
+   </property>
+  </action>
+  <action name="actionQuantize">
+   <property name="text">
+    <string>Quantize</string>
+   </property>
+  </action>
+  <action name="actionMove_Reguin_Up_One">
+   <property name="text">
+    <string>Move Reguin Up One</string>
+   </property>
+  </action>
+  <action name="actionMove_Region_Down_One">
+   <property name="text">
+    <string>Move Region Down One</string>
+   </property>
+  </action>
+  <action name="actionMove_Region_by_Number">
+   <property name="text">
+    <string>Move Region by Number</string>
+   </property>
+  </action>
+  <action name="actionApply_Automatic_VCV_Lyrics">
+   <property name="text">
+    <string>Apply Automatic VCV Lyrics</string>
+   </property>
+  </action>
+  <action name="actionApply_Automatic_Adjustments">
+   <property name="text">
+    <string>Apply Automatic Adjustments</string>
+   </property>
+  </action>
+  <action name="actionP2P3">
+   <property name="text">
+    <string>P2P3</string>
+   </property>
+  </action>
+  <action name="actionCrossfade_Optimization">
+   <property name="text">
+    <string>Crossfade Optimization</string>
+   </property>
+  </action>
+  <action name="actionReset_Envelopes">
+   <property name="text">
+    <string>Reset Envelopes</string>
+   </property>
+  </action>
+  <action name="actionPitch_Editor">
+   <property name="text">
+    <string>Pitch Editor</string>
+   </property>
+  </action>
+  <action name="actionEnvelope_Editor">
+   <property name="text">
+    <string>Envelope Editor</string>
+   </property>
+  </action>
+  <action name="actionRegion_Property">
+   <property name="text">
+    <string>Region Property</string>
+   </property>
+  </action>
+  <action name="actionZoom_In">
+   <property name="text">
+    <string>Zoom In</string>
+   </property>
+  </action>
+  <action name="actionZoom_Out">
+   <property name="text">
+    <string>Zoom Out</string>
+   </property>
+  </action>
+  <action name="action4_4_Beat">
+   <property name="text">
+    <string>4/4-Beat</string>
+   </property>
+  </action>
+  <action name="action3_4_Beat">
+   <property name="text">
+    <string>3/4-Beat</string>
+   </property>
+  </action>
+  <action name="actionSounds_List">
+   <property name="text">
+    <string>Sounds List</string>
+   </property>
+  </action>
+  <action name="actionVertical_Zoom_In">
+   <property name="text">
+    <string>Vertical Zoom In</string>
+   </property>
+  </action>
+  <action name="actionVertical_Zoom_Out">
+   <property name="text">
+    <string>Vertical Zoom Out</string>
+   </property>
+  </action>
+  <action name="actionShow_Pitch_Curves">
+   <property name="text">
+    <string>Show Pitch Curves</string>
+   </property>
+  </action>
+  <action name="actionSearch_Forward">
+   <property name="text">
+    <string>Search Forward</string>
+   </property>
+  </action>
+  <action name="actionSearch_Backward">
+   <property name="text">
+    <string>Search Backward</string>
+   </property>
+  </action>
+  <action name="actionGo_to_Next_Note">
+   <property name="text">
+    <string>Go to Next Note</string>
+   </property>
+  </action>
+  <action name="actionGo_to_Previous_Note">
+   <property name="text">
+    <string>Go to Previous Note</string>
+   </property>
+  </action>
+  <action name="actionGo_to_Region_Start">
+   <property name="text">
+    <string>Go to Region Start</string>
+   </property>
+  </action>
+  <action name="actionGo_to_Region_End">
+   <property name="text">
+    <string>Go to Region End</string>
+   </property>
+  </action>
+  <action name="actionGo_to_Label">
+   <property name="text">
+    <string>Go to Label</string>
+   </property>
+  </action>
+  <action name="actionGo_to_First_Note">
+   <property name="text">
+    <string>Go to First Note</string>
+   </property>
+  </action>
+  <action name="actionGo_to_Last_Note">
+   <property name="text">
+    <string>Go to Last Note</string>
+   </property>
+  </action>
+  <action name="actionGo_to_Start">
+   <property name="text">
+    <string>Go to Start</string>
+   </property>
+  </action>
+  <action name="actionGo_to_End">
+   <property name="text">
+    <string>Go to End</string>
+   </property>
+  </action>
+  <action name="actionRender_wav_file">
+   <property name="text">
+    <string>Render wav file</string>
+   </property>
+  </action>
+  <action name="actionPlay">
+   <property name="text">
+    <string>Play</string>
+   </property>
+  </action>
+  <action name="actionPause">
+   <property name="text">
+    <string>Pause</string>
+   </property>
+  </action>
+  <action name="actionStop">
+   <property name="text">
+    <string>Stop</string>
+   </property>
+  </action>
+  <action name="actionProject_Properties">
+   <property name="text">
+    <string>Project Properties</string>
+   </property>
+  </action>
+  <action name="actionPlay_Region">
+   <property name="text">
+    <string>Play Region</string>
+   </property>
+  </action>
+  <action name="actionReplay">
+   <property name="text">
+    <string>Replay</string>
+   </property>
+  </action>
+  <action name="actionPause_2">
+   <property name="text">
+    <string>Pause</string>
+   </property>
+  </action>
+  <action name="actionStop_2">
+   <property name="text">
+    <string>Stop</string>
+   </property>
+  </action>
+  <action name="actionSave_Last_Play">
+   <property name="text">
+    <string>Save Last Play</string>
+   </property>
+  </action>
+  <action name="actionVoicebank_Settings">
+   <property name="text">
+    <string>Voicebank Settings</string>
+   </property>
+  </action>
+  <action name="actionEdit_prefix_map">
+   <property name="text">
+    <string>Edit prefix.map</string>
+   </property>
+  </action>
+  <action name="actionReload">
+   <property name="text">
+    <string>Reload</string>
+   </property>
+  </action>
+  <action name="actionOpen_Plugins_Folder">
+   <property name="text">
+    <string>Open Plugins Folder</string>
+   </property>
+  </action>
+  <action name="actionPitch_Automation">
+   <property name="text">
+    <string>Pitch Automation</string>
+   </property>
+  </action>
+  <action name="actionCrossfade">
+   <property name="text">
+    <string>Crossfade</string>
+   </property>
+  </action>
+  <action name="actionAuto_Vibrato">
+   <property name="text">
+    <string>Auto Vibrato</string>
+   </property>
+  </action>
+  <action name="actionA_La_Carte">
+   <property name="text">
+    <string>A La Carte</string>
+   </property>
+  </action>
+  <action name="actionSuffix_Broker">
+   <property name="text">
+    <string>Suffix Broker</string>
+   </property>
+  </action>
+  <action name="actionVolume_Functionizer">
+   <property name="text">
+    <string>Volume Functionizer</string>
+   </property>
+  </action>
+  <action name="actionGeneral">
+   <property name="text">
+    <string>General</string>
+   </property>
+  </action>
+  <action name="actionPitch_Control">
+   <property name="text">
+    <string>Pitch Control</string>
+   </property>
+  </action>
+  <action name="actionEnvelope">
+   <property name="text">
+    <string>Envelope</string>
+   </property>
+  </action>
+  <action name="actionSettings">
+   <property name="text">
+    <string>Settings</string>
+   </property>
+  </action>
+  <action name="actionRead_Me">
+   <property name="text">
+    <string>Read Me</string>
+   </property>
+  </action>
+  <action name="actionVersion">
+   <property name="text">
+    <string>Version</string>
+   </property>
+  </action>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
