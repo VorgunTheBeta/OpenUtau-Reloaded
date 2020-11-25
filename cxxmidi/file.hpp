@@ -32,6 +32,7 @@ public:
     inline Time::Duration duration() const;
 
     inline std::string tempo() const;
+    inline std::string name() const;
 
 private:
 
@@ -249,6 +250,10 @@ size_t File::tracks() const
 std::string File::tempo() const
 {
     return this->at(0).getTempo();
+}
+
+std::string File::name() const {
+    return this->at(0).getName();
 }
 
 uint16_t File::timeDivision() const

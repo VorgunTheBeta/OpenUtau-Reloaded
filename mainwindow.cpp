@@ -11,6 +11,8 @@
 #include <cxxmidi/file.hpp>
 #include <string>
 
+using namespace std;
+
 int tempo = 120;
 CxxMidi::File file;
 
@@ -62,7 +64,7 @@ void playMidi() {
     //temp.bpmText->setText(str);
     
     player.play();
-    std::this_thread::sleep_for(std::chrono::seconds(10));
+    this_thread::sleep_for(chrono::seconds(10));
     player.pause();
 }
 
@@ -73,9 +75,10 @@ void MainWindow::on_actionPlay_Region_triggered() {
 
 void MainWindow::on_actionImport_triggered() {
     file.load("Alleycat.mid");
-    tempo = (60 * 1000000) / std::stoi(file.tempo());
+    tempo = (60 * 1000000) / stoi(file.tempo());
     QString str;
     this->ui->bpmText->setText(str.setNum(tempo));
+    this->setWindowTitle("Alleycat - OpenUtau Reloaded");
 }
 
 void MainWindow::keyPressEvent(QKeyEvent* event)

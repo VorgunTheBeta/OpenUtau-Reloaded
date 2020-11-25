@@ -71,6 +71,7 @@
   <PropertyGroup Label="QtSettings" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <QtInstall>msvc2019_64</QtInstall>
     <QtModules>core;gui;widgets</QtModules>
+    <QtDeploy>true</QtDeploy>
   </PropertyGroup>
   <ImportGroup Condition="Exists('$(QtMsBuild)\qt.props')">
     <Import Project="$(QtMsBuild)\qt.props" />
@@ -192,6 +193,7 @@
     <ClCompile Include="cxxmidi\guts\3rdparty\RtMidi\RtMidi.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="mainwindow.cpp" />
+    <ClCompile Include="note.cpp" />
     <ClCompile Include="versionwindow.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -274,11 +276,15 @@
     <ClInclude Include="cxxmidi\track.hpp" />
     <ClInclude Include="cxxmidi\utils.hpp" />
     <ClInclude Include="cxxmidi\version.hpp" />
+    <ClInclude Include="note.h" />
     <ClInclude Include="ui_mainwindow.h" />
     <ClInclude Include="ui_versionwindow.h" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="Utau_logo_large.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <QtRcc Include="Resource.qrc" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Condition="Exists('$(QtMsBuild)\qt.targets')">

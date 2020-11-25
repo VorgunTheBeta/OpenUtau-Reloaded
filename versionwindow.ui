@@ -58,18 +58,14 @@
      <height>31</height>
     </rect>
    </property>
-   <property name="font">
-    <font>
-     <family>Bahnschrift</family>
-     <pointsize>18</pointsize>
-    </font>
-   </property>
    <property name="text">
     <string>OpenUtau Reloaded</string>
    </property>
   </widget>
  </widget>
- <resources/>
+ <resources>
+  <include location="Resource.qrc"/>
+ </resources>
  <connections>
   <connection>
    <sender>buttonBox</sender>

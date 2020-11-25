@@ -11,11 +11,11 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Main - OpenUtau Reloaded</string>
+   <string>アヤノの幸福理論 - OpenUtau Reloaded</string>
   </property>
   <property name="windowIcon">
-   <iconset>
-    <normaloff>Utau_logo_large.png</normaloff>Utau_logo_large.png</iconset>
+   <iconset resource="Resource.qrc">
+    <normaloff>:/resources/Utau_logo_large.png</normaloff>:/resources/Utau_logo_large.png</iconset>
   </property>
   <widget class="QWidget" name="centralwidget">
    <widget class="QScrollBar" name="verticalScrollBar">
@@ -26,6 +26,12 @@
       <width>16</width>
       <height>601</height>
      </rect>
+    </property>
+    <property name="sizePolicy">
+     <sizepolicy hsizetype="Expanding" vsizetype="Minimum">
+      <horstretch>0</horstretch>
+      <verstretch>0</verstretch>
+     </sizepolicy>
     </property>
     <property name="orientation">
      <enum>Qt::Vertical</enum>
@@ -53,6 +59,75 @@
     <property name="text">
      <string>BPM:</string>
     </property>
+   </widget>
+   <widget class="QFrame" name="frame">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>30</y>
+      <width>161</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::StyledPanel</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Raised</enum>
+    </property>
+    <widget class="QPushButton" name="playButton">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>10</y>
+       <width>23</width>
+       <height>23</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>12</pointsize>
+      </font>
+     </property>
+     <property name="toolTip">
+      <string>Play</string>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="icon">
+      <iconset resource="Resource.qrc">
+       <normaloff>:/resources/Images/play.png</normaloff>:/resources/Images/play.png</iconset>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="pauseButton">
+     <property name="geometry">
+      <rect>
+       <x>23</x>
+       <y>10</y>
+       <width>23</width>
+       <height>23</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>12</pointsize>
+      </font>
+     </property>
+     <property name="toolTip">
+      <string>Pause</string>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="icon">
+      <iconset resource="Resource.qrc">
+       <normaloff>:/resources/Images/pause.png</normaloff>:/resources/Images/pause.png</iconset>
+     </property>
+     <property name="flat">
+      <bool>false</bool>
+     </property>
+    </widget>
    </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
@@ -631,6 +706,25 @@
    </property>
   </action>
  </widget>
- <resources/>
+ <resources>
+  <include location="Resource.qrc"/>
+ </resources>
  <connections/>
+ <designerdata>
+  <property name="gridDeltaX">
+   <number>10</number>
+  </property>
+  <property name="gridDeltaY">
+   <number>10</number>
+  </property>
+  <property name="gridSnapX">
+   <bool>true</bool>
+  </property>
+  <property name="gridSnapY">
+   <bool>true</bool>
+  </property>
+  <property name="gridVisible">
+   <bool>true</bool>
+  </property>
+ </designerdata>
 </ui>

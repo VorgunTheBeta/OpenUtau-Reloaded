@@ -45,10 +45,6 @@ public:
         label = new QLabel(VersionWindow);
         label->setObjectName(QString::fromUtf8("label"));
         label->setGeometry(QRect(10, 10, 221, 31));
-        QFont font;
-        font.setFamily(QString::fromUtf8("Bahnschrift"));
-        font.setPointSize(18);
-        label->setFont(font);
 
         retranslateUi(VersionWindow);
         QObject::connect(buttonBox, SIGNAL(accepted()), VersionWindow, SLOT(accept()));

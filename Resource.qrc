@@ -1,0 +1,9 @@
+<RCC>
+    <qresource prefix="/resources">
+        <file>Images/pause.png</file>
+        <file>Images/play.png</file>
+        <file>Utau_logo_large.png</file>
+        <file>fonts/bahnschrift.ttf</file>
+        <file>fonts/p5hatty.ttf</file>
+    </qresource>
+</RCC>

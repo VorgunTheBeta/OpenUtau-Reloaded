@@ -13,11 +13,13 @@
 #include <QtGui/QIcon>
 #include <QtWidgets/QAction>
 #include <QtWidgets/QApplication>
+#include <QtWidgets/QFrame>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QLineEdit>
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QMenu>
 #include <QtWidgets/QMenuBar>
+#include <QtWidgets/QPushButton>
 #include <QtWidgets/QScrollBar>
 #include <QtWidgets/QStatusBar>
 #include <QtWidgets/QWidget>
@@ -107,6 +109,9 @@ public:
     QScrollBar *verticalScrollBar;
     QLineEdit *bpmText;
     QLabel *label;
+    QFrame *frame;
+    QPushButton *playButton;
+    QPushButton *pauseButton;
     QMenuBar *menubar;
     QMenu *menuFile;
     QMenu *menuEdit;
@@ -130,7 +135,7 @@ public:
             MainWindow->setObjectName(QString::fromUtf8("MainWindow"));
         MainWindow->resize(888, 657);
         QIcon icon;
-        icon.addFile(QString::fromUtf8("Utau_logo_large.png"), QSize(), QIcon::Normal, QIcon::Off);
+        icon.addFile(QString::fromUtf8(":/resources/Utau_logo_large.png"), QSize(), QIcon::Normal, QIcon::Off);
         MainWindow->setWindowIcon(icon);
         actionNew = new QAction(MainWindow);
         actionNew->setObjectName(QString::fromUtf8("actionNew"));
@@ -289,6 +294,11 @@ public:
         verticalScrollBar = new QScrollBar(centralwidget);
         verticalScrollBar->setObjectName(QString::fromUtf8("verticalScrollBar"));
         verticalScrollBar->setGeometry(QRect(870, 0, 16, 601));
+        QSizePolicy sizePolicy(QSizePolicy::Expanding, QSizePolicy::Minimum);
+        sizePolicy.setHorizontalStretch(0);
+        sizePolicy.setVerticalStretch(0);
+        sizePolicy.setHeightForWidth(verticalScrollBar->sizePolicy().hasHeightForWidth());
+        verticalScrollBar->setSizePolicy(sizePolicy);
         verticalScrollBar->setOrientation(Qt::Vertical);
         bpmText = new QLineEdit(centralwidget);
         bpmText->setObjectName(QString::fromUtf8("bpmText"));
@@ -296,6 +306,28 @@ public:
         label = new QLabel(centralwidget);
         label->setObjectName(QString::fromUtf8("label"));
         label->setGeometry(QRect(10, 13, 47, 13));
+        frame = new QFrame(centralwidget);
+        frame->setObjectName(QString::fromUtf8("frame"));
+        frame->setGeometry(QRect(10, 30, 161, 41));
+        frame->setFrameShape(QFrame::StyledPanel);
+        frame->setFrameShadow(QFrame::Raised);
+        playButton = new QPushButton(frame);
+        playButton->setObjectName(QString::fromUtf8("playButton"));
+        playButton->setGeometry(QRect(0, 10, 23, 23));
+        QFont font;
+        font.setPointSize(12);
+        playButton->setFont(font);
+        QIcon icon1;
+        icon1.addFile(QString::fromUtf8(":/resources/Images/play.png"), QSize(), QIcon::Normal, QIcon::Off);
+        playButton->setIcon(icon1);
+        pauseButton = new QPushButton(frame);
+        pauseButton->setObjectName(QString::fromUtf8("pauseButton"));
+        pauseButton->setGeometry(QRect(23, 10, 23, 23));
+        pauseButton->setFont(font);
+        QIcon icon2;
+        icon2.addFile(QString::fromUtf8(":/resources/Images/pause.png"), QSize(), QIcon::Normal, QIcon::Off);
+        pauseButton->setIcon(icon2);
+        pauseButton->setFlat(false);
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName(QString::fromUtf8("menubar"));
@@ -455,7 +487,7 @@ public:
 
     void retranslateUi(QMainWindow *MainWindow)
     {
-        MainWindow->setWindowTitle(QCoreApplication::translate("MainWindow", "Main - OpenUtau Reloaded", nullptr));
+        MainWindow->setWindowTitle(QCoreApplication::translate("MainWindow", "\343\202\242\343\203\244\343\203\216\343\201\256\345\271\270\347\246\217\347\220\206\350\253\226 - OpenUtau Reloaded", nullptr));
         actionNew->setText(QCoreApplication::translate("MainWindow", "New", nullptr));
         actionOpen->setText(QCoreApplication::translate("MainWindow", "Open", nullptr));
         actionSave->setText(QCoreApplication::translate("MainWindow", "Save", nullptr));
@@ -533,6 +565,14 @@ public:
         actionRead_Me->setText(QCoreApplication::translate("MainWindow", "Read Me", nullptr));
         actionVersion->setText(QCoreApplication::translate("MainWindow", "Version", nullptr));
         label->setText(QCoreApplication::translate("MainWindow", "BPM:", nullptr));
+#if QT_CONFIG(tooltip)
+        playButton->setToolTip(QCoreApplication::translate("MainWindow", "Play", nullptr));
+#endif // QT_CONFIG(tooltip)
+        playButton->setText(QString());
+#if QT_CONFIG(tooltip)
+        pauseButton->setToolTip(QCoreApplication::translate("MainWindow", "Pause", nullptr));
+#endif // QT_CONFIG(tooltip)
+        pauseButton->setText(QString());
         menuFile->setTitle(QCoreApplication::translate("MainWindow", "File", nullptr));
         menuEdit->setTitle(QCoreApplication::translate("MainWindow", "Edit", nullptr));
         menuRegion->setTitle(QCoreApplication::translate("MainWindow", "Region", nullptr));
